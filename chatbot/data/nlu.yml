@@ -1,0 +1,122 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: location
+  examples: |
+    - [Andheri](location)
+    - [Bandra](location)
+    - [Dadar](location)
+    - [Bhandup](location)
+    - [Chembur](location)
+    - [Ghatkopar](location)
+    - [Goregaon](location)
+    - [Jogeshwari](location)
+    - [Kandivali](location)
+    - [Khar](location)
+    - [Malad](location)
+    - [Marine Drive](location)
+    - [Mulund](location)
+    - [Pantnagar](location)
+    - [Sion](location)
+    - [Vile Parle](location)
+
+- intent: search_provider
+  examples: |
+    - I need a [police station](facility)
+    - [Police station](facility) near me
+    - Find me a [police station](facility)
+    - I need [police](facility)
+    - [Cops](facility)
+    - [Police thana](facility)
+    - [Police station](facility)
+    - Find me a [police station](facility) near [Andheri](location)
