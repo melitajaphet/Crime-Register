@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Crime Register</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,13 +24,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Sailor - v2.2.0
-  * Template URL: https://bootstrapmade.com/sailor-free-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -43,15 +33,12 @@
     <div class="container d-flex align-items-center">
 
       <h1 class="logo"><a href="index.html">Crime Register</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
 
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="news.html">News</a></li>
-          <li><a href="services.html">Services</a></li>
           <li class="active"><a href="report.html">Report</a></li>
 
         </ul>
@@ -80,46 +67,227 @@
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <!-- ======= Contact Section ======= -->
+    <!-- ======= Report Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
 
-        <div class="row mt-5">
-
-
-          <div class="col-lg-8 mt-5 mt-lg-0">
-
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                  <div class="validate"></div>
-                </div>
-                <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                  <div class="validate"></div>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
-                <div class="validate"></div>
-              </div>
-              <div class="form-group">
-                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
-                <div class="validate"></div>
-              </div>
-              <div class="mb-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-
-          </div>
-
+        <div id="successResult" style="display:none;" class="alert alert-success alert-dismissible fade show"
+          role="alert">
+          <strong>Registered Crime successfully</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
 
+        <div id="errorResult" style="display:none;" class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>Some error occurred, please try again.</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="row main-form">
+          <form onsubmit="return submitForm(event)" enctype="multipart/form-data" class="php-form">
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="name">Full Name*</label><br>
+                <input id="name" class="form-control sty" name="name" value="" type="text" title="Full Name"
+                  maxlength="100" autocomplete="nope" required="">
+                <span class="validity"></span>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="contact">Contact Number*</label><br>
+                <input id="contact_number" class="form-control sty" name="contact" value="" title="Contact Number"
+                  type="tel" minlength="10" maxlength="10" autocomplete="nope" required="">
+                <span class="validity"></span>
+              </div>
+              <div class="form-group m-b-30 col-sm-4 col-md-4">
+                <label for="mail">E-mail ID*</label><br>
+                <input id="email" class="form-control sty" name="email" type="email" value=""
+                  placeholder="example@domain.com" title="E-mail ID" maxlength="100" autocomplete="nope"
+                  onkeyup="this.value=this.value.replace(/[^_a-zA-Z0-9@. ]/,'')" required="">
+                <span class="validity"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group m-b-30 col-sm-4 col-md-4">
+                <label for="address">Room No. / Street Name </label><br>
+                <input id="door" class="form-control sty" name="doorno" type="text" value="" autocomplete="nope"
+                  title="Room No. / Street Name">
+              </div>
+              <div class="form-group m-b-30 col-sm-4 col-md-4">
+                <label for="address">Address </label><br>
+                <input id="address" class="form-control sty" name="address" value="" type="text" autocomplete="nope"
+                  title="Address" maxlength="200">
+                <span class="validity"></span>
+              </div>
+              <div class="form-group m-b-30 col-sm-4 col-md-4">
+                <label for="subject">City </label><br>
+
+                <input id="city" class="form-control sty" name="city" value="" title="City" placeholder="Mumbai"
+                  autocomplete="nope" type="text">
+
+                <span class="validity"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group m-b-30 col-sm-6 col-md-6">
+                <span class="validity"></span>
+                <label for="subject" title="State">State </label><br>
+                <input id="state" class="form-control sty" name="state" value="" placeholder="Maharashtra" type="text"
+                  autocomplete="nope" title="State">
+
+                <span class="validity"></span>
+              </div>
+              <div class="form-group m-b-30 col-sm-6 col-md-6">
+                <span class="validity"></span>
+                <label for="subject" title="Country">Country </label><br>
+                <input id="country" class="form-control sty" name="country" value="" placeholder="India" type="text"
+                  autocomplete="nope" title="Country">
+
+                <span class="validity"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <input type="text" name="ps_id" value="0" hidden="">
+              <div class="form-group m-b-30 col-sm-6 col-md-6">
+                <label for="subject">Pin code</label><br>
+                <input id="pincode" class="form-control sty" name="postal_code" value="" type="text" autocomplete="nope"
+                  title="Pin code" minlenght="6" maxlength="6">
+                <span class="validity"></span>
+              </div>
+
+              <div class="form-group m-b-30 col-sm-6 col-md-6" id="formbottom">
+
+                <label class="control-label">Police Station*</label>
+                <select id="policestation" class="classic1  form-control sty cl-form" name="police_s" value=""
+                  title="Select Police Station" required="">
+                  <option value="">Select Police Station </option>
+                  <option value="2">Aarey</option>
+                  <option value="3">Agripada</option>
+                  <option value="4">Airport</option>
+                  <option value="5">Amboli</option>
+                  <option value="6">Andheri</option>
+                  <option value="7">Antop Hill</option>
+                  <option value="8">Azad Maidan</option>
+                  <option value="10">B.K.C.</option>
+                  <option value="9">Bandra</option>
+                  <option value="11">Bangur Nagar</option>
+                  <option value="12">Bhandup</option>
+                  <option value="13">Bhoiwada</option>
+                  <option value="14">Borivali</option>
+                  <option value="15">Byculla</option>
+                  <option value="16">Charkop</option>
+                  <option value="17">Chembur</option>
+                  <option value="18">Chunabhatti</option>
+                  <option value="19">Colaba</option>
+                  <option value="20">Cuffe Parade</option>
+                  <option value="23">D. N. Nagar</option>
+                  <option value="24">Dadar</option>
+                  <option value="25">Dahisar</option>
+                  <option value="26">Deonar</option>
+                  <option value="27">Dharavi</option>
+                  <option value="28">Dindoshi</option>
+                  <option value="29">Dongri</option>
+                  <option value="22">Dr.D.B Marg</option>
+                  <option value="30">Gamdevi</option>
+                  <option value="31">Ghatkopar</option>
+                  <option value="32">Gorai</option>
+                  <option value="33">Goregaon</option>
+                  <option value="34">Govandi</option>
+                  <option value="36">Jogeshwari</option>
+                  <option value="37">Juhu</option>
+                  <option value="38">Kalachowki</option>
+                  <option value="39">Kandivali</option>
+                  <option value="40">Kanjurmarg</option>
+                  <option value="41">Kasturba marg</option>
+                  <option value="42">Khar</option>
+                  <option value="43">Kherwadi</option>
+                  <option value="44">Kurar</option>
+                  <option value="45">Kurla</option>
+                  <option value="46">L. T. Marg</option>
+                  <option value="48">M.H.B. Colony</option>
+                  <option value="47">M.I.D.C.</option>
+                  <option value="49">M.R.A. Marg</option>
+                  <option value="50">Mahim</option>
+                  <option value="52">Malabar Hill</option>
+                  <option value="51">Malad</option>
+                  <option value="53">Malvani</option>
+                  <option value="54">Mankhurd</option>
+                  <option value="55">Marine Drive</option>
+                  <option value="56">Matunga</option>
+                  <option value="57">Meghwadi</option>
+                  <option value="58">Mulund</option>
+                  <option value="61">N. M. Joshi Marg</option>
+                  <option value="62">Nagpada</option>
+                  <option value="63">Navghar</option>
+                  <option value="64">Nehru Nagar</option>
+                  <option value="65">Nirmal Nagar</option>
+                  <option value="66">Oshiwara</option>
+                  <option value="67">PantNagar</option>
+                  <option value="68">Parksite</option>
+                  <option value="69">Powai</option>
+                  <option value="70">Pydhonie</option>
+                  <option value="71">R.A.K. Marg</option>
+                  <option value="72">R.C.F.</option>
+                  <option value="73">Sahar</option>
+                  <option value="74">Sakinaka</option>
+                  <option value="75">Samta Nagar</option>
+                  <option value="76">Santacruz</option>
+                  <option value="77">Sewree</option>
+                  <option value="78">Shahu nagar</option>
+                  <option value="79">Shivaji Nagar</option>
+                  <option value="80">Shivaji Park</option>
+                  <option value="81">Sion</option>
+                  <option value="35">Sir J.J. Marg</option>
+                  <option value="82">Tardeo</option>
+                  <option value="83">Tilak Nagar</option>
+                  <option value="84">Trombay</option>
+                  <option value="85">V. P. Road</option>
+                  <option value="86">Vakola</option>
+                  <option value="87">Vanrai</option>
+                  <option value="88">Versova</option>
+                  <option value="89">Vikhroli</option>
+                  <option value="90">VileParle</option>
+                  <option value="91">Vinoba Bhave Nagar</option>
+                  <option value="92">Wadala</option>
+                  <option value="93">Wadala Truck Terminal</option>
+                  <option value="94">Worli</option>
+                  <option value="95">Yellow Gate</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group m-b-30 col-sm-12 col-md-12">
+              <label for="Description">Complaint*</label><br>
+              <textarea id="complaint" class="form-control txtar" name="complaint" value="" type="text"
+                title="Article Description" maxlength="500" rows="4" autocomplete="nope" required=""></textarea>
+              <span class="validity"></span>
+            </div>
+
+
+            <div class="col-md-11 col-sm-11">
+              <p title=""></p>
+              <h4>DISCLAIMER:</h4>
+              <p>As per the prevailing laws, FIR of a major crime (recognisable crimes like theft, burglary, motor
+                vehicle theft, accident, chain-snatching, assault, rape, murder, attempt to commit murder, robbery,
+                dacoity, extortion etc) can only be registered at a Police Station. Please contact your nearest Police
+                Station for the same.
+
+                <br><br>This site shall only entertain complaints about minor crimes. Your complaint shall be referred
+                to the concerned Police Station, where you may be called for further clarification and/or to give
+                statement.
+              </p>
+              <p></p>
+            </div>
+
+            <button class="btn btn-secondary col-md-3 col-sm-2 col-xs-5" type="reset" title="Reset">Reset</button>
+
+            <button class="btn btn-success col-md-3 col-sm-2 col-xs-5" id="submit_button" title="Submit"
+              type="Submit">Submit</button>
+
+          </form>
+        </div>
       </div>
     </section><!-- End Contact Section -->
 
@@ -134,20 +302,90 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      var name = document.getElementById('name');
+      var email = document.getElementById('email');
+      var contact = document.getElementById('contact_number');
+      var door = document.getElementById('door');
+      var address = document.getElementById('address');
+      var city = document.getElementById('city');
+      var state = document.getElementById('state');
+      var country = document.getElementById('country');
+      var pincode = document.getElementById('pincode');
+      var policestation = document.getElementById('policestation');
+      var complaint = document.getElementById('complaint');
+
+      var success_result = document.getElementById('successResult');
+      var error_result = document.getElementById('errorResult');
+      $.ajax({
+        type: "post",
+        url: "forms/contact.php",
+        data:
+        {
+          'name': name.value,
+
+          'contact_number': contact.value,
+          'email': email.value,
+          'door': door.value,
+          'address': address.value,
+          'city': city.value,
+          'state': state.value,
+          'country': country.value,
+          'pincode': pincode.value,
+          'policestation': policestation.value,
+          'complaint': complaint.value
+        },
+        cache: false,
+        success: function (html) {
+          success_result.style.display = "block";
+          name.value = "";
+          email.value = "";
+          contact.value = "";
+          door.value = "";
+          address.value = "";
+          city.value = "";
+          state.value = "";
+          country.value = "";
+          pincode.value = "";
+          policestation.value = "";
+          complaint.value = "";
+        },
+        error: function (error) {
+          error_result.style.display = "block";
+        }
+      });
+    }
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "8edbd5d3-261b-4c58-bc94-fe17dbbae664", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "c4b8dc8a-74e3-4dad-98d1-7b7d7e71cea4", // The ID of your service instance.
+      onLoad: function (instance) { instance.render(); }
+    };
+    setTimeout(function () {
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+      document.head.appendChild(t);
+    });
+  </script>
 
 </body>
 
