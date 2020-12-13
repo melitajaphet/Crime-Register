@@ -596,17 +596,17 @@ section {
   color: whitesmoke;
 }
 
-.services .read-more-news a{
+.news .read-more-news a{
   margin-top: 50px;
   margin-right: 250px;
   float: right;
 }
 
-.services .text:hover h3 {
+.news .text:hover h3 {
   color: #3e3ef3;
 }
 
-.services .news-button a{
+.news .news-button a{
   margin-top: 50px;
   margin-right: 60px;
   float: right;
